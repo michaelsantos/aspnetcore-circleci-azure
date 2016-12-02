@@ -2,6 +2,6 @@ FROM microsoft/aspnetcore
 
 WORKDIR /app
 
-COPY src/WeAPIApplication/bin/Release/netcoreapp1.1/publish .
+COPY src/WebAPIApplication/bin/Release/netcoreapp1.1/publish .
 
-ENTRYPOINT ["dotnet", "WeAPIApplication.dll"]
+ENTRYPOINT ["dotnet", "WebAPIApplication.dll"]
