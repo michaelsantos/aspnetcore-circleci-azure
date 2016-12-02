@@ -26,8 +26,10 @@ test:
     - cp -R src/WebAPIApplication/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
 
 deployment:
-  hub:
+  master:
     branch: master
     commands:
+      - docker build -t aspnetcore-workshop .
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker tag aspnetcore-workshop $DOCKER_USER/aspnetcore-workshop:latest
       - docker push $DOCKER_USER/aspnetcore-workshop
